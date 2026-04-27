@@ -11,73 +11,67 @@ In their existing market, the sales team has classified all customers into 4 seg
 You are required to help the manager to predict the right group of the new customers.
 
 ## Neural Network Model
-Include the neural network model diagram.
+<img width="1536" height="695" alt="nn" src="https://github.com/user-attachments/assets/0b5afeaf-0c60-4a6b-9281-f07ef8c1ae22" />
 
 ## DESIGN STEPS
 ### STEP 1: 
-
-Write your own steps
+Load the customer data, then clean it by handling missing values and encoding categorical features into numerical format.
 
 ### STEP 2: 
-
-
+Divide the data into training and testing sets, then scale numerical features to standardize their range.
 
 ### STEP 3: 
-
-
+Define a multi-layered neural network model using PyTorch to learn complex patterns for customer segmentation.
 
 ### STEP 4: 
-
-
+Train the neural network model on the training data, optimizing its parameters to minimize the prediction error.
 
 ### STEP 5: 
-
-
+Assess the trained model's performance on the test data using metrics like accuracy, confusion matrix, and classification report.
 
 ### STEP 6: 
-
-
-
-
+Demonstrate the model's ability to classify a new, unseen customer into one of the learned segments.
 
 ## PROGRAM
 
-### Name:
+### Name: Malar Mariam S
 
-### Register Number:
+### Register Number: 212223230118
 
 ```python
+# Define Neural Network(Model1)
 class PeopleClassifier(nn.Module):
     def __init__(self, input_size):
         super(PeopleClassifier, self).__init__()
         #Include your code here
-
+        self.fc1 = nn.Linear(input_size, 32)
+        self.fc2 = nn.Linear(32, 16)
+        self.fc3 = nn.Linear(16, 8)
+        self.fc4 = nn.Linear(8, 4)
 
 
     def forward(self, x):
-        #Include your code here
-        
-# Initialize the Model, Loss Function, and Optimizer
-
-def train_model(model, train_loader, criterion, optimizer, epochs):
-    #Include your code here
-
+      #Include your code here
+      x = F.relu(self.fc1(x))
+      x = F.relu(self.fc2(x))
+      x = F.relu(self.fc3(x))
+      x = self.fc4(x)
+      return x;
 ```
 
 ### Dataset Information
-Include screenshot of the dataset.
+<img width="998" height="736" alt="image" src="https://github.com/user-attachments/assets/bcf23d46-d51c-4154-8b8f-d0efdad4bae0" />
 
 ### OUTPUT
 
 ## Confusion Matrix
-
-Include confusion matrix here
+<img width="539" height="455" alt="image" src="https://github.com/user-attachments/assets/edaa63db-ac94-49ff-8c45-b0eab36d524d" />
 
 ## Classification Report
-Include classification report here
+<img width="745" height="257" alt="image" src="https://github.com/user-attachments/assets/3aa15c1d-fbc7-4d79-9334-a5b499a6d110" />
 
 ### New Sample Data Prediction
-Include your sample input and output here
+<img width="716" height="100" alt="image" src="https://github.com/user-attachments/assets/f6134810-25d4-4661-b3ac-68864372c419" />
 
 ## RESULT
-Include your result here
+A neural network classification model was successfully developed and tested on the given dataset with satisfactory classification performance.
